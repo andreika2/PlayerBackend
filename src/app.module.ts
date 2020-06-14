@@ -4,6 +4,8 @@ import { from } from 'rxjs';
 
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose'
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 const enviroment = process.env.NODE_ENV || 'development'
 
@@ -20,7 +22,9 @@ const enviroment = process.env.NODE_ENV || 'development'
         useNewUrlParser: true,
         useUnifiedTopology: true
       }
-    )
+    ),
+    UserModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
