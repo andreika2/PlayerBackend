@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { VideoModule } from './video/video.module';
-import { from } from 'rxjs';
 
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose'
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { TokenModule } from './token/token.module';
 
-const enviroment = process.env.NODE_ENV || 'development'
+const enviroment = process.env.NODE_ENV || 'development';
 
 @Module({
   imports: [
@@ -24,7 +24,8 @@ const enviroment = process.env.NODE_ENV || 'development'
       }
     ),
     UserModule,
-    AuthModule
+    AuthModule,
+    TokenModule
   ],
   controllers: [],
   providers: [],
