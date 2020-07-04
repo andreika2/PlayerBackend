@@ -7,6 +7,7 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { UserModule } from '../user/user.module';
+import { MailModule } from 'src/mail/mail.module';
 
 const enviroment = process.env.NODE_ENV || 'development'
 
@@ -22,7 +23,8 @@ const enviroment = process.env.NODE_ENV || 'development'
     JwtModule.register({
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1d' }
-    })
+    }),
+    MailModule
   ],
   providers: [
     AuthService, 
